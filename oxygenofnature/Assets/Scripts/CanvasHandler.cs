@@ -36,6 +36,7 @@ public class CanvasHandler : MonoBehaviour {
         Male.isOn = true;
         Female.isOn = false;
         GenderNum = 0;
+        ModelSelected = 3;
     }
 
     // Selects female and disables male
@@ -44,6 +45,7 @@ public class CanvasHandler : MonoBehaviour {
         Female.isOn = true;
         Male.isOn = false;
         GenderNum = 1;
+        ModelSelected = 0;
     }
 
     public void NameGenderDisable()
@@ -114,6 +116,6 @@ public class CanvasHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(ModelSelected);
+
 	}
 }

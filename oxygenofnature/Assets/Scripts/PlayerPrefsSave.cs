@@ -13,9 +13,10 @@ public class PlayerPrefsSave : MonoBehaviour {
     public int GetModelNum() { return ModelNum; }
     public void SetModelNum(int Num) { ModelNum = Num; }
 
-    private int gender;
-    public int GetGender() { return gender; }
-    public void SetGender(int Gender) { gender = Gender; }
+    private int ClassNum;
+    public int GetClassNum() { return ClassNum; }
+    public void SetClassNum(int num) { ClassNum = num; }
+
 
 	// Use this for initialization
 	void Start () {
