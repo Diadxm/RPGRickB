@@ -13,6 +13,9 @@ public class CanvasHandler : MonoBehaviour {
     private int ModelSelected;
     public int GetModelSelected() { return ModelSelected; }
 
+    private int ClassSelected = 0;
+    public int GetClassSelected() { return ClassSelected; }
+
     public GameObject NameGender;
     public GameObject BaseMale;
     public GameObject BaseFemale;
@@ -21,13 +24,19 @@ public class CanvasHandler : MonoBehaviour {
     public GameObject Female2;
     public GameObject Female3;
 
+    public GameObject ClassCanvas;
+
     public GameObject FemaleChoice;
 
     public GameObject MaleChoice;
 
+
 	// Use this for initialization
 	void Start () {
-		
+        NameGender.SetActive(true);
+        ClassCanvas.SetActive(false);
+        MaleChoice.SetActive(false);
+        FemaleChoice.SetActive(false);
 	}
 
     // Selects male and disables female
@@ -112,6 +121,28 @@ public class CanvasHandler : MonoBehaviour {
         Male2.SetActive(false);
         Male3.SetActive(true);
         ModelSelected = 5;
+    }
+
+    public void ClassSelect()
+    {
+        FemaleChoice.SetActive(false);
+        MaleChoice.SetActive(false);
+        ClassCanvas.SetActive(true);
+    }
+
+    public void SelectSwoardsman()
+    {
+        ClassSelected = 0;
+    }
+
+    public void SelectMage()
+    {
+        ClassSelected = 1;
+    }
+
+    public void SelectMysticWarrior()
+    {
+        ClassSelected = 2;
     }
 
 	// Update is called once per frame
