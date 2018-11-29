@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CanvasHandler : MonoBehaviour {
     public Toggle Male;
     public Toggle Female;
+
+    private PlayerPrefsSave PlayerPrefSave;
 
     private int GenderNum;
     public int GetGenderNum() { return GenderNum; }
@@ -16,6 +19,10 @@ public class CanvasHandler : MonoBehaviour {
     private int ClassSelected = 0;
     public int GetClassSelected() { return ClassSelected; }
 
+    private string CharacterName;
+    public void SetCharName(string Name) { CharacterName = Name; }
+    public string GetCharName() { return CharacterName; }
+
     public GameObject NameGender;
     public GameObject BaseMale;
     public GameObject BaseFemale;
@@ -23,8 +30,6 @@ public class CanvasHandler : MonoBehaviour {
     public GameObject Male3;
     public GameObject Female2;
     public GameObject Female3;
-
-    public GameObject ClassCanvas;
 
     public GameObject FemaleChoice;
 
@@ -34,9 +39,10 @@ public class CanvasHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         NameGender.SetActive(true);
-        ClassCanvas.SetActive(false);
         MaleChoice.SetActive(false);
         FemaleChoice.SetActive(false);
+
+        PlayerPrefSave = GameObject.Find("GameManager").GetComponent<PlayerPrefsSave>();
 	}
 
     // Selects male and disables female
@@ -123,26 +129,13 @@ public class CanvasHandler : MonoBehaviour {
         ModelSelected = 5;
     }
 
-    public void ClassSelect()
+    public void CharacterSelected()
     {
-        FemaleChoice.SetActive(false);
-        MaleChoice.SetActive(false);
-        ClassCanvas.SetActive(true);
-    }
+        PlayerPrefSave.SetModelNum(ModelSelected);
+        PlayerPrefSave.SetCharName(GetCharName());
+        PlayerPrefSave.SavePlayerPrefs();
 
-    public void SelectSwoardsman()
-    {
-        ClassSelected = 0;
-    }
-
-    public void SelectMage()
-    {
-        ClassSelected = 1;
-    }
-
-    public void SelectMysticWarrior()
-    {
-        ClassSelected = 2;
+        SceneManager.LoadScene(2);
     }
 
 	// Update is called once per frame

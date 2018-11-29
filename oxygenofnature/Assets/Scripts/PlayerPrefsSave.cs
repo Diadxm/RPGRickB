@@ -13,11 +13,6 @@ public class PlayerPrefsSave : MonoBehaviour {
     public int GetModelNum() { return ModelNum; }
     public void SetModelNum(int Num) { ModelNum = Num; }
 
-    private int ClassNum;
-    public int GetClassNum() { return ClassNum; }
-    public void SetClassNum(int num) { ClassNum = num; }
-
-
 	// Use this for initialization
 	void Start () {
 

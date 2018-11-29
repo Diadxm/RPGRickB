@@ -1,5 +1,107 @@
 # Exported from Fuse 2017.1.0
 
+newmtl Hair
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Hair_Opacity.png
+map_Kd Male2_Hair_Diffuse.png
+adobe_map_normal Male2_Hair_Normal.png
+map_Ks Male2_Hair_Specular.png
+adobe_map_shininess Male2_Hair_Gloss.png
+
+newmtl Top
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Top_Opacity.png
+map_Kd Male2_Top_Diffuse.png
+adobe_map_normal Male2_Top_Normal.png
+map_Ks Male2_Top_Specular.png
+adobe_map_shininess Male2_Top_Gloss.png
+
+newmtl Glove
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Glove_Opacity.png
+map_Kd Male2_Glove_Diffuse.png
+adobe_map_normal Male2_Glove_Normal.png
+map_Ks Male2_Glove_Specular.png
+adobe_map_shininess Male2_Glove_Gloss.png
+
+newmtl Mask
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Mask_Opacity.png
+map_Kd Male2_Mask_Diffuse.png
+adobe_map_normal Male2_Mask_Normal.png
+map_Ks Male2_Mask_Specular.png
+adobe_map_shininess Male2_Mask_Gloss.png
+
+newmtl Shoes
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Shoes_Opacity.png
+map_Kd Male2_Shoes_Diffuse.png
+adobe_map_normal Male2_Shoes_Normal.png
+map_Ks Male2_Shoes_Specular.png
+adobe_map_shininess Male2_Shoes_Gloss.png
+
+newmtl Eyewear
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Eyewear_Opacity.png
+map_Kd Male2_Eyewear_Diffuse.png
+adobe_map_normal Male2_Eyewear_Normal.png
+map_Ks Male2_Eyewear_Specular.png
+adobe_map_shininess Male2_Eyewear_Gloss.png
+
 newmtl Body
 illum 4 
 Kd 1.00 1.00 1.00 
@@ -16,4 +118,21 @@ map_Kd Male2_Body_Diffuse.png
 adobe_map_normal Male2_Body_Normal.png
 map_Ks Male2_Body_Specular.png
 adobe_map_shininess Male2_Body_Gloss.png
+
+newmtl Bottom
+illum 4 
+Kd 1.00 1.00 1.00 
+Tf 1.00 1.00 1.00 
+Ni 1.00 
+Ks 1.00 1.00 1.00 
+Ns 512 
+adobe_reflectivity 0.04 
+adobe_bump_strength 0.0 
+d 1.0 
+
+map_d Male2_Bottom_Opacity.png
+map_Kd Male2_Bottom_Diffuse.png
+adobe_map_normal Male2_Bottom_Normal.png
+map_Ks Male2_Bottom_Specular.png
+adobe_map_shininess Male2_Bottom_Gloss.png
 
