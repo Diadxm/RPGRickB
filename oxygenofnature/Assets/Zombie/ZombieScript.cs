@@ -18,29 +18,28 @@ public class ZombieScript : MonoBehaviour
     private float heading;
     private Vector3 targetRotation;
     public Transform target { get; set; }
-    private int crawlState;
     private Animator animController;
     private CharacterController controller;
-    private Rigidbody rb;
 
     private vp_FPPlayerDamageHandler PlayerDamage;
 
+    private GameObject Player;
+
+    public AudioSource Footstep;
+
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
         heading = Random.Range(0, 360);
         transform.eulerAngles = new Vector3(0, heading, 0);
         controller = GetComponent<CharacterController>();
         animController = GetComponent<Animator>();
-        //crawlState = Animator.StringToHash("Base.crawl");
 
         PlayerDamage = GameObject.Find("HeroHDWeapons").GetComponent<vp_FPPlayerDamageHandler>();
+        Player = GameObject.Find("HeroHDWeapons");
     }
 
     void Update()
     {
-        SwingAtPlayer();
-
         if (StartTimer)
         {
             Timer -= Time.deltaTime;
@@ -66,12 +65,8 @@ public class ZombieScript : MonoBehaviour
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * turningSpeed);
             NewHeading();
 
-            AnimatorStateInfo currentBaseState = animController.GetCurrentAnimatorStateInfo(0);
-            //if (currentBaseState.fullPathHash == crawlState)
-            //{
             animController.SetFloat("Speed", speed);
             moveDirection = transform.forward * speed;
-           // }
         }
         //chase enemy
         else
@@ -85,45 +80,50 @@ public class ZombieScript : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turningSpeed * Time.fixedTime);
             // Move forward
             moveDirection = transform.forward * speed;
-
-            animController.SetBool("SeesPlayer", true);
             animController.SetFloat("Speed", speed);
-
-
-
         }
+
+
 
         //Apply gravity
         moveDirection.y -= gravity;
 
         //Apply move
         controller.Move(moveDirection * Time.deltaTime);
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Look for player within the trigger, if player found set it as the target
-        if(other.gameObject.tag == "Player")
-        {
-            //Set player transform as target.
-            SpottedEnemy(other.gameObject.transform);
-        }
+        TargetPlayer();
+        SwingAtPlayer();
     }
 
     private void SwingAtPlayer()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, target.position) <= 1)
+        if (target != null)
         {
-            Debug.Log(Vector3.Distance(this.gameObject.transform.position, target.position));
-            animController.SetBool("isAttacking", true);
-            DamagePlayer();
-            StartTimer = true;
+            if (Vector3.Distance(this.gameObject.transform.position, target.position) <= 1)
+            {
+                DamagePlayer();
+                StartTimer = true;
+            }
+        }
+    }
+
+    private void TargetPlayer()
+    {
+        if (Vector3.Distance(this.gameObject.transform.position, Player.transform.position) < 10)
+        {
+            target = Player.transform;
+            Footstep.Play();
+        }
+        else if (Vector3.Distance(this.gameObject.transform.position, Player.transform.position) < 20 && target == Player.transform)
+        {
+           
         }
         else
         {
-            animController.SetBool("isAttacking", false);
+            target = null;
+            Footstep.Pause();
         }
-    } 
+    }
 
     private void DamagePlayer()
     {
